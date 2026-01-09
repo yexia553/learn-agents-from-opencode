@@ -1,6 +1,6 @@
 # OpenCode System Prompt 系统学习教程
 
-> 本教程旨在深入理解 OpenCode 的 System Prompt 系统，通过源码分析和实践演练，帮助读者掌握 System Prompt 的架构设计、实现原理和定制方法。
+> 本教程旨在深入理解 OpenCode 的 System Prompt 系统，通过源码分析和实践演练，帮助读者掌握 Agent开发中System Prompt 的架构设计、实现细节。
 
 ---
 
@@ -27,11 +27,11 @@
 
 **System Prompt** 是与大语言模型交互时传递给模型的第一条系统级消息，它定义了模型的身份定位、行为规范、工具权限和工作流程。
 
-> **核心概念**：在 OpenCode 中，System Prompt 不仅仅是一段静态文本，而是一个由多个组件动态组合而成的复杂系统，涵盖了 Provider 适配、环境感知、自定义规则和 Agent 特定配置等多个维度。
+> **核心概念**：在 OpenCode 中，System Prompt 不仅仅是一段静态文本，而是一个由多个组件动态组合而成的复杂系统，涵盖了 LLM Provider 适配、环境感知、自定义规则和 Agent 特定配置等多个维度。
 
 **分层设计的三大优势：**
 
-- **灵活性高**：可以针对不同模型提供商定制不同的提示风格
+- **灵活性高**：可以针对不同模型提供商定制不同的提示风格以适应不同模型的特性
 - **可扩展性强**：新增提示来源只需添加对应的加载逻辑
 - **维护性好**：各部分职责清晰，便于独立修改和测试
 
@@ -85,8 +85,6 @@ const result = await processor.process({
 | `packages/opencode/src/session/prompt.ts` | Prompt 处理主文件，实现 System Prompt 注入逻辑 |
 | `packages/opencode/src/agent/agent.ts` | 定义所有内置 Agent 的配置 |
 | `packages/opencode/src/session/prompt/` | 包含所有 Provider 和 Agent 特定的提示模板 |
-
----
 
 ---
 
@@ -382,8 +380,6 @@ export async function custom() {
 
 ---
 
----
-
 ## 三、Provider 特定 Prompt
 
 ### 3.1 Prompt 模板文件概述
@@ -408,7 +404,33 @@ export async function custom() {
 
 ---
 
-### 3.2 anthropic.txt 深度分析
+### 3.2 提示模板对比分析
+
+**三大 Provider 模板的设计差异：**
+
+| 维度 | anthropic.txt | beast.txt | gemini.txt |
+|------|---------------|-----------|------------|
+| **风格** | 散文式结构 | 指令化 | 列表式 |
+| **长度** | 详细冗长 | 简洁直接 | 中等 |
+| **结构** | 章节分层 | 连续段落 | 规则列表 |
+| **特点** | 大量示例说明 | 强调自主性 | 明确的强制规则 |
+
+**三大设计考量：**
+
+1. **身份定位一致性**
+   - 无论使用哪个 Provider，OpenCode 都被定位为专注于软件工程任务的命令行工具
+
+2. **风格结构差异性**
+   - anthropic.txt：宽松的散文式结构
+   - beast.txt：指令化，强调自主性
+   - gemini.txt：核心规则列表
+
+3. **安全策略统一性**
+   - 所有模板都包含 URL 生成、文件创建、安全实践等方面的安全规则
+
+---
+
+### 3.3 anthropic.txt 深度分析
 
 **文件路径**：`packages/opencode/src/session/prompt/anthropic.txt`
 
@@ -490,7 +512,7 @@ It is critical that you mark todos as completed as soon as you are done with a t
 
 ---
 
-### 3.3 beast.txt 深度分析
+### 3.4 beast.txt 深度分析
 
 **文件路径**：`packages/opencode/src/session/prompt/beast.txt`
 
@@ -543,7 +565,7 @@ You MUST plan extensively before each function call, and reflect extensively on 
 
 ---
 
-### 3.4 gemini.txt 深度分析
+### 3.5 gemini.txt 深度分析
 
 **文件路径**：`packages/opencode/src/session/prompt/gemini.txt`
 
@@ -582,32 +604,6 @@ You are opencode, an interactive CLI agent specializing in software engineering 
 | **Do Not revert** | 不随意回滚更改 |
 
 **结构特点**：使用核心规则的列表形式，结构清晰，便于模型逐条理解和执行。
-
----
-
-### 3.5 提示模板对比分析
-
-**三大 Provider 模板的设计差异：**
-
-| 维度 | anthropic.txt | beast.txt | gemini.txt |
-|------|---------------|-----------|------------|
-| **风格** | 散文式结构 | 指令化 | 列表式 |
-| **长度** | 详细冗长 | 简洁直接 | 中等 |
-| **结构** | 章节分层 | 连续段落 | 规则列表 |
-| **特点** | 大量示例说明 | 强调自主性 | 明确的强制规则 |
-
-**三大设计考量：**
-
-1. **身份定位一致性**
-   - 无论使用哪个 Provider，OpenCode 都被定位为专注于软件工程任务的命令行工具
-
-2. **风格结构差异性**
-   - anthropic.txt：宽松的散文式结构
-   - beast.txt：指令化，强调自主性
-   - gemini.txt：核心规则列表
-
-3. **安全策略统一性**
-   - 所有模板都包含 URL 生成、文件创建、安全实践等方面的安全规则
 
 ---
 
@@ -757,28 +753,9 @@ fetch(url, { signal: AbortSignal.timeout(5000) })
 
 **文件作用**：定义项目特定的代码规范和规则
 
-**典型内容结构：**
+**AGENTS.md 格式与示例**：
 
-```markdown
-# 项目代码规范
-
-## 命名规范
-
-- 组件使用 PascalCase
-- 变量和函数使用 camelCase
-- 常量使用 UPPER_SNAKE_CASE
-
-## 代码风格
-
-- 使用 2 空格缩进
-- 字符串使用单引号
-- 每行最大长度 100 字符
-
-## 测试要求
-
-- 所有新功能必须添加单元测试
-- 测试覆盖率不低于 80%
-```
+完整的 AGENTS.md 编写指南请参考 [agents.md](https://agents.md/)。
 
 **加载后影响**：模型在进行代码编写时会遵循这些规范
 
