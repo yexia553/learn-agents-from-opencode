@@ -128,7 +128,7 @@ Session 管理对话的生命周期：
 
 ## 许可证
 
-MIT
+[CC BY-NC 4.0](LICENSE)
 
 ---
 
