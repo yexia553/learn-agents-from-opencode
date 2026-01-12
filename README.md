@@ -13,6 +13,19 @@ OpenCode 是一个优秀的开源 Coding Agent, **Agent**、**Tool**、**Permiss
 
 **本教程主要使用OpenCode/Claude Code/Codex等工具生成，人工review。**
 
+## 这不是从0开始的教程
+
+首先这不是一套“从 0 开始教你写 Agent”的教程，而是一套**基于优秀开源Agent项目的拆解**，你至少具备以下两个条件：
+
+1. 使用任何一款coding agent做过至少一个项目或者工具，哪怕是给自己使用的也行
+2. 熟悉任何一门编程语言
+
+这个教程更适合下面这些场景：
+
+* 已经用过 Claude Code / Codex / OpenCode等coding agent，想知道它们**内部是怎么工作的**
+* 想自己实现一个 **可控的 Coding Agent 或者其他类型的Agent**
+* 对 Agent 的权限 / Tool / Session / Prompt 这些模块有真实工程需求
+
 ---
 
 ## 教程列表
