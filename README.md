@@ -30,17 +30,17 @@ OpenCode 是一个优秀的开源 Coding Agent, **Agent**、**Tool**、**Permiss
 
 ## 教程列表
 
-| 序号 | 教程 | 说明 | 难度 | 人工review | Reviewer | 备注 |
-|------|------|------|:----:|:----------:|:--------:|------|
-| 00 | [学习规划](00_OPENCODE_LEARNING_PLAN.md) | 完整的架构学习路线图 | - | ✅ | @yexia553 | - |
-| 01 | [System Prompt 系统](01_SYSTEM_PROMPT_TUTORIAL.md) | Prompt 构建、Provider 适配、环境注入 | ⭐⭐ | | | |
-| 02 | [权限审核系统](02_PERMISSION_SYSTEM_TUTORIAL.md) | 权限规则、请求流程、BashArity | ⭐⭐⭐ | | | |
-| 03 | [Agent 系统](03_AGENT_SYSTEM_TUTORIAL.md) | 内置 Agent、配置系统、权限集成 | ⭐⭐ | | | |
-| 04 | [Tool 系统](04_TOOL_SYSTEM_TUTORIAL.md) | 工具定义、注册、执行流程 | ⭐⭐⭐ | | | |
-| 05 | [迭代信息收集模式](05_ITERATIVE_INFO_GATHERING_TUTORIAL.md) | 核心循环、Tool Chaining、Explore Agent | ⭐⭐⭐⭐ | | | |
-| 06 | [Skill 系统](06_SKILL_SYSTEM_TUTORIAL.md) | Skill 定义、发现机制、工具集成 | ⭐⭐ | | | |
-| 07 | [Session 系统](07_SESSION_SYSTEM_TUTORIAL.md) | 会话管理、消息流转、上下文压缩 | ⭐⭐⭐ | | | |
-| 08 | [Provider 系统](08_PROVIDER_SYSTEM_TUTORIAL.md) | 多模型适配、SDK 初始化、成本计算 | ⭐⭐⭐ | | | |
+| 序号  | 教程                                                  | 说明                               |  难度  | 人工review | Reviewer  | 备注  |
+| --- | --------------------------------------------------- | -------------------------------- | :--: | :------: | :-------: | --- |
+| 00  | [学习规划](00_OPENCODE_LEARNING_PLAN.md)                | 完整的架构学习路线图                       |  -   |    ✅     | @yexia553 | -   |
+| 01  | [System Prompt 系统](01_SYSTEM_PROMPT_TUTORIAL.md)    | Prompt 构建、Provider 适配、环境注入       |  ⭐⭐  |    ✅     | @yexia553 |     |
+| 02  | [权限审核系统](02_PERMISSION_SYSTEM_TUTORIAL.md)          | 权限规则、请求流程、BashArity              | ⭐⭐⭐  |          |           |     |
+| 03  | [Agent 系统](03_AGENT_SYSTEM_TUTORIAL.md)             | 内置 Agent、配置系统、权限集成               |  ⭐⭐  |          |           |     |
+| 04  | [Tool 系统](04_TOOL_SYSTEM_TUTORIAL.md)               | 工具定义、注册、执行流程                     | ⭐⭐⭐  |          |           |     |
+| 05  | [迭代信息收集模式](05_ITERATIVE_INFO_GATHERING_TUTORIAL.md) | 核心循环、Tool Chaining、Explore Agent | ⭐⭐⭐⭐ |          |           |     |
+| 06  | [Skill 系统](06_SKILL_SYSTEM_TUTORIAL.md)             | Skill 定义、发现机制、工具集成               |  ⭐⭐  |          |           |     |
+| 07  | [Session 系统](07_SESSION_SYSTEM_TUTORIAL.md)         | 会话管理、消息流转、上下文压缩                  | ⭐⭐⭐  |          |           |     |
+| 08  | [Provider 系统](08_PROVIDER_SYSTEM_TUTORIAL.md)       | 多模型适配、SDK 初始化、成本计算               | ⭐⭐⭐  |          |           |     |
 
 
 ---
