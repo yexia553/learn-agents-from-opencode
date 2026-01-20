@@ -737,7 +737,7 @@ touch .claude/skills/code-reviewer/SKILL.md
 
 **步骤 2：编写 SKILL.md**
 
-```markdown
+````markdown
 ---
 name: code-reviewer
 description: Use this skill when asked to review code for bugs, security issues, or style violations
@@ -799,7 +799,7 @@ grep -r "SELECT.*\+.*" .
 - 提供可执行的修复建议
 - 按严重程度分类问题
 - 引用相关文档和标准
-```
+````
 
 **步骤 3：验证 Skill 是否加载**
 
@@ -824,7 +824,7 @@ grep -r "SELECT.*\+.*" .
 
 **SKILL.md 内容：**
 
-```markdown
+````markdown
 ---
 name: database-expert
 description: Database expert for SQL optimization, schema design, and performance tuning
@@ -869,7 +869,7 @@ SHOW INDEX FROM users;
 -- 分析慢查询
 SELECT * FROM mysql.slow_log ORDER BY start_time DESC LIMIT 10;
 ```
-```
+````
 
 ### 7.3 实战 3：创建 API 设计 Skill
 
@@ -883,7 +883,7 @@ SELECT * FROM mysql.slow_log ORDER BY start_time DESC LIMIT 10;
 
 **SKILL.md 内容：**
 
-```markdown
+````markdown
 ---
 name: api-designer
 description: Design RESTful APIs following best practices and OpenAPI specification
@@ -936,7 +936,7 @@ description: Design RESTful APIs following best practices and OpenAPI specificat
   }
 }
 ```
-```
+````
 
 ### 7.4 实战 4：Skill 权限配置
 
@@ -1209,4 +1209,3 @@ Description...
 ## 注意事项
 - Note 1
 - Note 2
-```
