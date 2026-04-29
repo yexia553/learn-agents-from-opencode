@@ -1,0 +1,29 @@
+name: 内容反馈
+description: 反馈某篇教程的表达、结构或阅读体验
+title: "[Feedback]: "
+labels: ["feedback"]
+body:
+  - type: dropdown
+    id: topic
+    attributes:
+      label: 相关主题
+      options:
+        - 学习规划
+        - System Prompt
+        - Permission
+        - Agent
+        - Tool
+        - Iterative Info Gathering
+        - Skill
+        - Session
+        - Provider
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: feedback
+    attributes:
+      label: 反馈内容
+      description: 请说明哪里不清楚、哪里可以更好，或你希望补充什么上下文。
+    validations:
+      required: true

@@ -922,8 +922,8 @@ bun test
 
 | 资源 | 链接 |
 |------|------|
-| OpenCode GitHub | https://github.com/anomalyco/opencode |
-| OpenCode 文档 | https://opencode.ai/docs |
-| 问题反馈 | https://github.com/anomalyco/opencode/issues |
+| OpenCode GitHub | <https://github.com/anomalyco/opencode> |
+| OpenCode 文档 | <https://opencode.ai/docs> |
+| 问题反馈 | <https://github.com/anomalyco/opencode/issues> |
 
 ---

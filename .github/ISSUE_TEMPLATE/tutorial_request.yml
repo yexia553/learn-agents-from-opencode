@@ -1,0 +1,24 @@
+name: 新教程建议
+description: 建议新增一个 OpenCode 或 Agent 工程相关教程
+title: "[Request]: "
+labels: ["enhancement"]
+body:
+  - type: input
+    id: topic
+    attributes:
+      label: 主题
+      description: 你希望新增什么教程？
+    validations:
+      required: true
+  - type: textarea
+    id: value
+    attributes:
+      label: 为什么需要这个主题
+      description: 请说明这个主题对读者的价值，以及它和 OpenCode 源码学习的关系。
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: 参考资料
+      description: 可以附上相关源码路径、上游文档或已有讨论。

@@ -1651,7 +1651,7 @@ const data = ctx.extra?.["intermediateResult"]
 
 ### 相关文档
 
-- [System Prompt 教程](./SYSTEM_PROMPT_TUTORIAL.md)
-- [权限系统教程](./PERMISSION_SYSTEM_TUTORIAL.md)
-- [Agent 系统教程](./AGENT_SYSTEM_TUTORIAL.md)
-- [OpenCode 学习规划](../OPENCODE_LEARNING_PLAN.md)
+- [System Prompt 教程](./01-system-prompt.md)
+- [权限系统教程](./02-permission-system.md)
+- [Agent 系统教程](./03-agent-system.md)
+- [OpenCode 学习规划](../00-learning-plan.md)

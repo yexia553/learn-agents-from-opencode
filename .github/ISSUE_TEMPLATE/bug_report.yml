@@ -1,0 +1,24 @@
+name: 文档错误
+description: 报告教程中的事实错误、链接错误或格式问题
+title: "[Docs]: "
+labels: ["docs"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 问题描述
+      description: 请说明具体错误是什么。
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: 文档位置
+      description: 例如 docs/tutorials/01-system-prompt.md 的某个章节或行号。
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: 建议修正
+      description: 如果你知道如何修正，请写在这里。
