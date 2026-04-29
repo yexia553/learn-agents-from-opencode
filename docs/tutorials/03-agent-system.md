@@ -792,15 +792,18 @@ $ bun dev
 
 ```json
 {
+  "$schema": "https://opencode.ai/config.json",
   "agent": {
     "db-expert": {
       "mode": "subagent",
       "description": "Database expert for SQL optimization, schema design, and performance tuning",
       "prompt": "You are a database expert with 15 years of experience.\n\nSpecializations:\n- SQL query optimization\n- Index design and usage\n- Schema normalization\n- Performance tuning\n- Migration strategies\n\nApproach:\n- Analyze query execution plans\n- Suggest optimal indexes\n- Recommend schema changes\n- Explain trade-offs clearly",
       "permission": {
-        "read": "*.sql",
-        "read": "*.psql",
-        "read": "prisma/schema.prisma",
+        "read": {
+          "*.sql": "allow",
+          "*.psql": "allow",
+          "prisma/schema.prisma": "allow"
+        },
         "grep": "allow",
         "bash": {
           "psql": "allow",
