@@ -67,10 +67,10 @@
 
 | 文件 | 路径 | 说明 |
 |------|------|------|
-| **Agent 定义** | `packages/opencode/src/agent/agent.ts` | Agent 核心实现 |
-| **Agent Prompt** | `packages/opencode/src/agent/prompt/*.txt` | 各 Agent 系统提示 |
-| **Session 管理** | `packages/opencode/src/session/` | 会话管理模块 |
-| **权限集成** | `packages/opencode/src/permission/next.ts` | 权限规则处理 |
+| **Agent 定义** | [`/opencode/packages/opencode/src/agent/agent.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/agent/agent.ts) | Agent 核心实现 |
+| **Agent Prompt** | [`/opencode/packages/opencode/src/agent/prompt/*.txt`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/agent/prompt/) | 各 Agent 系统提示 |
+| **Session 管理** | [`/opencode/packages/opencode/src/session/`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/) | 会话管理模块 |
+| **权限集成** | [`/opencode/packages/opencode/src/permission/next.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/permission/next.ts) | 权限规则处理 |
 
 ---
 

@@ -25,7 +25,7 @@ OpenCode 源码锁定在 `v1.14.30` 版本，教程中的文件路径对应为 `
 
 ### 1. System Prompt 系统 (重点学习)
 
-**System Prompt 构建流程** (`packages/opencode/src/session/prompt.ts`)
+**System Prompt 构建流程** ([`/opencode/packages/opencode/src/session/prompt.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/prompt.ts))
 
 ```
 System Prompt 组成:
@@ -60,11 +60,11 @@ System Prompt 组成:
 
 | 文件               | 路径                                                 | 用途                |
 | ------------------ | ---------------------------------------------------- | ------------------- |
-| Provider Prompt    | `packages/opencode/src/session/prompt/anthropic.txt` | Claude 系统提示     |
-| Agent 定义         | `packages/opencode/src/agent/agent.ts`        | Agent 配置与 prompt |
-| Agent Prompt       | `packages/opencode/src/agent/prompt/*.txt`           | 专用 agent 提示词   |
-| System Prompt 构建 | `packages/opencode/src/session/system.ts`            | Prompt 组装逻辑     |
-| Prompt 处理        | `packages/opencode/src/session/prompt.ts`    | LLM 调用时注入      |
+| Provider Prompt    | [`/opencode/packages/opencode/src/session/prompt/anthropic.txt`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/prompt/anthropic.txt) | Claude 系统提示     |
+| Agent 定义         | [`/opencode/packages/opencode/src/agent/agent.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/agent/agent.ts)        | Agent 配置与 prompt |
+| Agent Prompt       | [`/opencode/packages/opencode/src/agent/prompt/*.txt`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/agent/prompt/)           | 专用 agent 提示词   |
+| System Prompt 构建 | [`/opencode/packages/opencode/src/session/system.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/system.ts)            | Prompt 组装逻辑     |
+| Prompt 处理        | [`/opencode/packages/opencode/src/session/prompt.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/prompt.ts)    | LLM 调用时注入      |
 
 ---
 
@@ -116,11 +116,11 @@ System Prompt 组成:
 
 | 文件           | 路径                                        | 说明                       |
 | -------------- | ------------------------------------------- | -------------------------- |
-| **权限核心**   | `packages/opencode/src/permission/next.ts`          | PermissionNext 命名空间    |
-| **旧权限**     | `packages/opencode/src/permission/index.ts`         | Permission 命名空间 (旧版) |
-| **Arity 计算** | `packages/opencode/src/permission/arity.ts`         | bash 命令参数分组          |
-| **权限 UI**    | `packages/opencode/src/cli/cmd/tui/routes/session/permission.tsx` | TUI 权限对话框             |
-| **Bus 事件**   | `packages/opencode/src/cli/cmd/tui/context/sync.tsx` | 事件同步                   |
+| **权限核心**   | [`/opencode/packages/opencode/src/permission/next.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/permission/next.ts)          | PermissionNext 命名空间    |
+| **旧权限**     | [`/opencode/packages/opencode/src/permission/index.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/permission/index.ts)         | Permission 命名空间 (旧版) |
+| **Arity 计算** | [`/opencode/packages/opencode/src/permission/arity.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/permission/arity.ts)         | bash 命令参数分组          |
+| **权限 UI**    | [`/opencode/packages/opencode/src/cli/cmd/tui/routes/session/permission.tsx`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/cli/cmd/tui/routes/session/permission.tsx) | TUI 权限对话框             |
+| **Bus 事件**   | [`/opencode/packages/opencode/src/cli/cmd/tui/context/sync.tsx`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/cli/cmd/tui/context/sync.tsx) | 事件同步                   |
 
 **权限类型:**
 
@@ -151,7 +151,7 @@ Action = "allow" | "deny" | "ask"
 // Reply = "once" | "always" | "reject"
 ```
 
-**Agent 权限配置示例** (`packages/opencode/src/agent/agent.ts`):
+**Agent 权限配置示例** ([`/opencode/packages/opencode/src/agent/agent.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/agent/agent.ts)):
 
 ```typescript
 const defaults = PermissionNext.fromConfig({
@@ -167,7 +167,7 @@ const defaults = PermissionNext.fromConfig({
 })
 ```
 
-**工具调用权限请求示例** (`packages/opencode/src/tool/bash.ts`):
+**工具调用权限请求示例** ([`/opencode/packages/opencode/src/tool/bash.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/bash.ts)):
 
 ```typescript
 // 请求外部目录访问权限
@@ -189,7 +189,7 @@ await ctx.ask({
 
 ---
 
-### 3. Agent 系统 (`packages/opencode/src/agent/`)
+### 3. Agent 系统 ([`/opencode/packages/opencode/src/agent/`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/agent/))
 
 ```typescript
 // Agent 定义示例 (packages/opencode/src/agent/agent.ts)
@@ -212,7 +212,7 @@ plan: {
 
 ---
 
-### 4. Tool 系统 (`packages/opencode/src/tool/`)
+### 4. Tool 系统 ([`/opencode/packages/opencode/src/tool/`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/))
 
 **工具定义模式:**
 
@@ -232,7 +232,7 @@ export const ReadTool = Tool.define("read", async (ctx) => {
 
 ---
 
-### 5. 迭代信息收集模式 (`packages/opencode/src/session/processor.ts`)
+### 5. 迭代信息收集模式 ([`/opencode/packages/opencode/src/session/processor.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/processor.ts))
 
 > **核心灵魂** - OpenCode 的智能决策循环，让 Agent 能够根据用户问题探索代码库、迭代收集信息、直到获取足够信息后再采取行动。
 
@@ -350,16 +350,16 @@ explore: {
 
 | 文件 | 关键函数/行号 | 说明 |
 |------|--------------|------|
-| `packages/opencode/src/session/processor.ts` | `process()` 主循环 | 迭代决策核心 |
-| `packages/opencode/src/session/processor.ts` | 死循环检测 | `DOOM_LOOP_THRESHOLD` |
-| `packages/opencode/src/tool/grep.ts` | grep 工具 | 代码搜索 |
-| `packages/opencode/src/tool/glob.ts` | glob 工具 | 文件发现 |
-| `packages/opencode/src/tool/read.ts` | read 工具 | 内容读取 |
-| `packages/opencode/src/agent/agent.ts` | explore agent | 专用探索 |
+| [`/opencode/packages/opencode/src/session/processor.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/processor.ts) | `process()` 主循环 | 迭代决策核心 |
+| [`/opencode/packages/opencode/src/session/processor.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/processor.ts) | 死循环检测 | `DOOM_LOOP_THRESHOLD` |
+| [`/opencode/packages/opencode/src/tool/grep.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/grep.ts) | grep 工具 | 代码搜索 |
+| [`/opencode/packages/opencode/src/tool/glob.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/glob.ts) | glob 工具 | 文件发现 |
+| [`/opencode/packages/opencode/src/tool/read.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/read.ts) | read 工具 | 内容读取 |
+| [`/opencode/packages/opencode/src/agent/agent.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/agent/agent.ts) | explore agent | 专用探索 |
 
 ---
 
-### 6. Skill 系统 (`packages/opencode/src/skill/`)
+### 6. Skill 系统 ([`/opencode/packages/opencode/src/skill/`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/skill/))
 
 **Skill 定义格式** (`.opencode/skill/test-skill/SKILL.md`):
 
@@ -374,7 +374,7 @@ description: use this when asked to test skill
 
 ---
 
-### 7. Session 管理 (`packages/opencode/src/session/`)
+### 7. Session 管理 ([`/opencode/packages/opencode/src/session/`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/))
 
 - 会话创建与状态管理
 - 消息流处理 (MessageV2)
@@ -383,7 +383,7 @@ description: use this when asked to test skill
 
 ---
 
-### 8. Provider 系统 (`packages/opencode/src/provider/`)
+### 8. Provider 系统 ([`/opencode/packages/opencode/src/provider/`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/provider/))
 
 - 多模型提供商适配
 - 工具 schema 转换
@@ -402,13 +402,13 @@ description: use this when asked to test skill
    cat packages/opencode/src/session/prompt/beast.txt
    ```
 
-   - 阅读 `packages/opencode/src/session/system.ts` 了解 header/environment/custom 如何组合
-   - 阅读 `packages/opencode/src/session/prompt.ts` 了解如何注入到 LLM 调用
+   - 阅读 [`/opencode/packages/opencode/src/session/system.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/system.ts) 了解 header/environment/custom 如何组合
+   - 阅读 [`/opencode/packages/opencode/src/session/prompt.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/prompt.ts) 了解如何注入到 LLM 调用
 
 2. **权限系统基础**
-   - 阅读 `packages/opencode/src/permission/next.ts` 理解核心逻辑
+   - 阅读 [`/opencode/packages/opencode/src/permission/next.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/permission/next.ts) 理解核心逻辑
    - 理解 `ask()` → `evaluate()` → 决策流程
-   - 学习 TUI 权限对话框 (`packages/opencode/src/cli/cmd/tui/routes/session/permission.tsx`)
+   - 学习 TUI 权限对话框 ([`/opencode/packages/opencode/src/cli/cmd/tui/routes/session/permission.tsx`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/cli/cmd/tui/routes/session/permission.tsx))
 
 3. **实践**
    - 修改 `AGENTS.md` 添加项目规范
@@ -417,7 +417,7 @@ description: use this when asked to test skill
 ### 第二阶段：Agent + Tool 定制 (1周)
 
 1. **学习 Agent 定义**
-   - 阅读 `packages/opencode/src/agent/agent.ts` 理解 build/plan/explore agent
+   - 阅读 [`/opencode/packages/opencode/src/agent/agent.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/agent/agent.ts) 理解 build/plan/explore agent
    - 理解 permission 系统与 agent 的关联
 
 2. **创建自定义 Agent**
@@ -432,7 +432,7 @@ description: use this when asked to test skill
 ### 第三阶段：Tool 迭代与探索 (3-5天)
 
 1. **迭代信息收集模式**
-   - 阅读 `packages/opencode/src/session/processor.ts` 理解主循环
+   - 阅读 [`/opencode/packages/opencode/src/session/processor.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/processor.ts) 理解主循环
    - 理解 `while(true)` + `for await` 双层循环
    - 学习死循环检测机制 (`DOOM_LOOP_THRESHOLD`)
    - 理解 LLM 如何决定探索还是行动
@@ -443,14 +443,14 @@ description: use this when asked to test skill
    - 掌握迭代决策流程
 
 3. **Explore Agent**
-   - 阅读 `packages/opencode/src/agent/agent.ts` 理解专用探索 Agent
+   - 阅读 [`/opencode/packages/opencode/src/agent/agent.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/agent/agent.ts) 理解专用探索 Agent
    - 理解白名单权限模式 (`*": "deny"`)
    - 学习 `task` 工具调用 sub-agent
 
 ### 第四阶段：Skill 系统 (3-5天)
 
 1. **Skill 发现机制**
-   - 阅读 `packages/opencode/src/skill/skill.ts` 扫描逻辑
+   - 阅读 [`/opencode/packages/opencode/src/skill/skill.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/skill/skill.ts) 扫描逻辑
    - 理解 `.claude/skills/` 和 `.opencode/skill/` 优先级
 
 2. **编写自定义 Skill**
@@ -458,7 +458,7 @@ description: use this when asked to test skill
    - 定义 name/description/frontmatter
 
 3. **Skill 工具集成**
-   - 阅读 `packages/opencode/src/tool/skill.ts` 理解加载执行流程
+   - 阅读 [`/opencode/packages/opencode/src/tool/skill.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/skill.ts) 理解加载执行流程
 
 ### 第五阶段：高级特性 (2周)
 

@@ -82,10 +82,10 @@ graph TB
 
 | 文件           | 路径                                       | 说明             |
 | -------------- | ------------------------------------------ | ---------------- |
-| **Skill 核心** | `packages/opencode/src/skill/skill.ts`     | Skill 发现与管理 |
-| **Skill 工具** | `packages/opencode/src/tool/skill.ts`      | Skill 工具实现   |
-| **Skill 导出** | `packages/opencode/src/skill/index.ts`     | 模块导出         |
-| **配置解析**   | `packages/opencode/src/config/markdown.ts` | SKILL.md 解析    |
+| **Skill 核心** | [`/opencode/packages/opencode/src/skill/skill.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/skill/skill.ts)     | Skill 发现与管理 |
+| **Skill 工具** | [`/opencode/packages/opencode/src/tool/skill.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/skill.ts)      | Skill 工具实现   |
+| **Skill 导出** | [`/opencode/packages/opencode/src/skill/index.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/skill/index.ts)     | 模块导出         |
+| **配置解析**   | [`/opencode/packages/opencode/src/config/markdown.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/config/markdown.ts) | SKILL.md 解析    |
 
 ---
 
@@ -154,8 +154,8 @@ Skill 文档中可以进一步指向脚本、示例、长篇文档或外部资�
 
 这就是“分层设计”的核心价值：**先筛选、再深入、按需扩展**。代码上体现为先通过索引拿到 `name`/`description`，再由工具加载完整内容。相关实现入口：
 
-- `packages/opencode/src/skill/skill.ts`：Skill 索引与扫描逻辑（聚合 `name`/`description`/`location`，构建可检索的技能清单）。
-- `packages/opencode/src/tool/skill.ts`：Skill 工具入口（根据名称加载 SKILL.md 内容并返回给 Agent）。
+- [`/opencode/packages/opencode/src/skill/skill.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/skill/skill.ts)：Skill 索引与扫描逻辑（聚合 `name`/`description`/`location`，构建可检索的技能清单）。
+- [`/opencode/packages/opencode/src/tool/skill.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/skill.ts)：Skill 工具入口（根据名称加载 SKILL.md 内容并返回给 Agent）。
 
 ### 2.3 错误类型（为什么要显式建模）
 
@@ -165,7 +165,7 @@ Skill 文档中可以进一步指向脚本、示例、长篇文档或外部资�
 
 对 Agent 而言，错误类型越明确，越容易引导用户修复问题，也更适合做自动化诊断。
 
-> 对应实现仍在 `packages/opencode/src/skill/skill.ts`，这里强调的是“错误本身就是教学的一部分”。
+> 对应实现仍在 [`/opencode/packages/opencode/src/skill/skill.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/skill/skill.ts)，这里强调的是“错误本身就是教学的一部分”。
 
 ### 2.4 核心函数（从“Agent视角”理解）
 
@@ -181,7 +181,7 @@ Skill 文档中可以进一步指向脚本、示例、长篇文档或外部资�
 2. **选择阶段** → LLM 基于 `description` 选 Skill。
 3. **执行阶段** → 加载内容并按指引完成任务。
 
-> 实现细节在 `packages/opencode/src/skill/skill.ts`。在教程中，重点是“流程”，不是“实现细节”。
+> 实现细节在 [`/opencode/packages/opencode/src/skill/skill.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/skill/skill.ts)。在教程中，重点是“流程”，不是“实现细节”。
 
 下面用流程图表达 `addSkill()` 的核心步骤（对应源码的解析、校验、去重与入库）：
 

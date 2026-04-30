@@ -97,15 +97,15 @@ OpenCode 支持以下权限类型：
 
 | 文件 | 路径 | 说明 |
 |------|------|------|
-| **PermissionNext** | `packages/opencode/src/permission/next.ts` | 新版权限系统核心 |
-| **Permission** | `packages/opencode/src/permission/index.ts` | 旧版权限系统 |
-| **BashArity** | `packages/opencode/src/permission/arity.ts` | bash 命令参数分组 |
+| **PermissionNext** | [`/opencode/packages/opencode/src/permission/next.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/permission/next.ts) | 新版权限系统核心 |
+| **Permission** | [`/opencode/packages/opencode/src/permission/index.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/permission/index.ts) | 旧版权限系统 |
+| **BashArity** | [`/opencode/packages/opencode/src/permission/arity.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/permission/arity.ts) | bash 命令参数分组 |
 | **TUI 权限对话框** | `cli/cmd/tui/routes/session/permission.tsx` | 前端权限 UI |
 | **权限事件同步** | `cli/cmd/tui/context/sync.tsx` | 事件总线同步 |
 
 ### 2.2 PermissionNext 命名空间
 
-**位置**：`packages/opencode/src/permission/next.ts`
+**位置**：[`/opencode/packages/opencode/src/permission/next.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/permission/next.ts)
 
 **核心类型定义：**
 
@@ -498,7 +498,7 @@ plan: {
 
 ### 5.1 Bash 工具的权限请求
 
-**位置**：`packages/opencode/src/tool/bash.ts:139-155`
+**位置**：[`/opencode/packages/opencode/src/tool/bash.ts:139-155`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/bash.ts#L139-L155)
 
 ```typescript
 // 请求外部目录访问权限
@@ -557,7 +557,7 @@ await ctx.ask({
 
 **BashArity** 是一个用于解析 bash 命令参数分组的工具，帮助将具体命令转换为可读的"人类可理解命令"。
 
-**位置**：`packages/opencode/src/permission/arity.ts`
+**位置**：[`/opencode/packages/opencode/src/permission/arity.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/permission/arity.ts)
 
 **核心功能**：`prefix()` 函数
 
@@ -888,15 +888,15 @@ Agent 默认规则 > 项目配置 > 用户配置 > 已批准规则
 
 | 分类 | 文件 | 路径 | 说明 |
 |------|------|------|------|
-| **核心** | PermissionNext | `packages/opencode/src/permission/next.ts` | 权限系统核心 |
-| | BashArity | `packages/opencode/src/permission/arity.ts` | 命令参数分组 |
-| | 旧版 Permission | `packages/opencode/src/permission/index.ts` | 旧版权限系统 |
-| **工具** | BashTool | `packages/opencode/src/tool/bash.ts:139-155` | 权限请求示例 |
-| | EditTool | `packages/opencode/src/tool/edit.ts` | 编辑权限请求 |
+| **核心** | PermissionNext | [`/opencode/packages/opencode/src/permission/next.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/permission/next.ts) | 权限系统核心 |
+| | BashArity | [`/opencode/packages/opencode/src/permission/arity.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/permission/arity.ts) | 命令参数分组 |
+| | 旧版 Permission | [`/opencode/packages/opencode/src/permission/index.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/permission/index.ts) | 旧版权限系统 |
+| **工具** | BashTool | [`/opencode/packages/opencode/src/tool/bash.ts:139-155`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/bash.ts#L139-L155) | 权限请求示例 |
+| | EditTool | [`/opencode/packages/opencode/src/tool/edit.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/edit.ts) | 编辑权限请求 |
 | **UI** | 权限对话框 | `cli/cmd/tui/routes/session/permission.tsx` | TUI 权限界面 |
 | | 事件同步 | `cli/cmd/tui/context/sync.tsx` | 事件总线同步 |
-| **配置** | Agent 定义 | `packages/opencode/src/agent/agent.ts:43-57` | Agent 权限配置 |
-| | Config 类型 | `packages/opencode/src/config/config.ts` | 配置类型定义 |
+| **配置** | Agent 定义 | [`/opencode/packages/opencode/src/agent/agent.ts:43-57`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/agent/agent.ts#L43-L57) | Agent 权限配置 |
+| | Config 类型 | [`/opencode/packages/opencode/src/config/config.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/config/config.ts) | 配置类型定义 |
 
 ### 附录二、运行命令速查
 

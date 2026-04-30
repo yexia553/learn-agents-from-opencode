@@ -78,7 +78,7 @@ System Prompt 组成:
 
 这四个部分在运行时被组装成一个数组，作为系统消息传递给大语言模型。
 
-**注入逻辑源码**（见 `packages/opencode/src/session/prompt.ts`）：
+**注入逻辑源码**（见 [`/opencode/packages/opencode/src/session/prompt.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/prompt.ts)）：
 
 ### 1.3 核心文件概览
 
@@ -86,10 +86,10 @@ System Prompt 组成:
 
 | 文件                                      | 说明                                                    |
 | ----------------------------------------- | ------------------------------------------------------- |
-| `packages/opencode/src/session/system.ts` | 定义 header、provider、environment、custom 四个关键函数 |
-| `packages/opencode/src/session/prompt.ts` | Prompt 处理主文件，实现 System Prompt 注入逻辑          |
-| `packages/opencode/src/agent/agent.ts`    | 定义内置 Agent 的配置                                   |
-| `packages/opencode/src/session/prompt/`   | 包含所有 Provider 和 Agent 特定的提示模板               |
+| [`/opencode/packages/opencode/src/session/system.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/system.ts) | 定义 header、provider、environment、custom 四个关键函数 |
+| [`/opencode/packages/opencode/src/session/prompt.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/prompt.ts) | Prompt 处理主文件，实现 System Prompt 注入逻辑          |
+| [`/opencode/packages/opencode/src/agent/agent.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/agent/agent.ts)    | 定义内置 Agent 的配置                                   |
+| [`/opencode/packages/opencode/src/session/prompt/`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/prompt/)   | 包含所有 Provider 和 Agent 特定的提示模板               |
 
 ---
 
@@ -97,7 +97,7 @@ System Prompt 组成:
 
 ### 2.1 SystemPrompt 命名空间详解
 
-**SystemPrompt** 命名空间是整个 System Prompt 系统的核心，位于 `packages/opencode/src/session/system.ts`。
+**SystemPrompt** 命名空间是整个 System Prompt 系统的核心，位于 [`/opencode/packages/opencode/src/session/system.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/system.ts)。
 
 **四个核心函数：**
 
@@ -128,7 +128,7 @@ export function header(providerID: string) {
 - 只有当 Provider ID 包含 `"anthropic"` 时，才返回特殊的 spoof 提示
 - 否则返回空数组
 
-**spoof 提示来源**：`packages/opencode/src/session/prompt/anthropic_spoof.txt`
+**spoof 提示来源**：[`/opencode/packages/opencode/src/session/prompt/anthropic_spoof.txt`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/prompt/anthropic_spoof.txt)
 
 **调用时机**：在 Agent 生成阶段调用，确保 Agent 配置能正确反映所使用的模型提供商身份。
 
@@ -352,7 +352,7 @@ flowchart TD
 
 ### 3.1 Prompt 模板文件概述
 
-**模板目录**：`packages/opencode/src/session/prompt/`
+**模板目录**：[`/opencode/packages/opencode/src/session/prompt/`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/prompt/)
 
 **可用模板文件：**
 
@@ -400,7 +400,7 @@ flowchart TD
 
 ### 3.3 anthropic.txt 深度分析
 
-**文件路径**：`packages/opencode/src/session/prompt/anthropic.txt`
+**文件路径**：[`/opencode/packages/opencode/src/session/prompt/anthropic.txt`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/prompt/anthropic.txt)
 
 **完整内容：**
 
@@ -483,7 +483,7 @@ It is critical that you mark todos as completed as soon as you are done with a t
 
 ### 3.4 beast.txt 深度分析
 
-**文件路径**：`packages/opencode/src/session/prompt/beast.txt`
+**文件路径**：[`/opencode/packages/opencode/src/session/prompt/beast.txt`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/prompt/beast.txt)
 
 **完整内容：**
 
@@ -537,7 +537,7 @@ You MUST plan extensively before each function call, and reflect extensively on 
 
 ### 3.5 gemini.txt 深度分析
 
-**文件路径**：`packages/opencode/src/session/prompt/gemini.txt`
+**文件路径**：[`/opencode/packages/opencode/src/session/prompt/gemini.txt`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/prompt/gemini.txt)
 
 **完整内容：**
 
@@ -579,7 +579,7 @@ You are opencode, an interactive CLI agent specializing in software engineering 
 
 ## 四、环境信息注入
 
-> 源码位置：`packages/opencode/src/session/system.ts`（`environment()` 函数）
+> 源码位置：[`/opencode/packages/opencode/src/session/system.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/system.ts)（`environment()` 函数）
 
 ### 4.1 环境信息的组成
 
@@ -662,7 +662,7 @@ const today = new Date().toDateString()
 
 ## 五、自定义规则加载
 
-> 源码位置：`packages/opencode/src/session/system.ts`（`custom()` 函数）
+> 源码位置：[`/opencode/packages/opencode/src/session/system.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/system.ts)（`custom()` 函数）
 
 ### 5.1 自定义规则的来源
 
@@ -763,11 +763,11 @@ fetch(url, { signal: AbortSignal.timeout(5000) })
 
 ### 6.1 Prompt 处理主流程
 
-**文件位置**：`packages/opencode/src/session/prompt.ts`
+**文件位置**：[`/opencode/packages/opencode/src/session/prompt.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/prompt.ts)
 
 **核心逻辑**：在主循环中，System Prompt 的注入发生在 `processor.process` 方法调用时。
 
-**注入代码**（见 `packages/opencode/src/session/prompt.ts`）：
+**注入代码**（见 [`/opencode/packages/opencode/src/session/prompt.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/prompt.ts)）：
 
 ```typescript
 const result = await processor.process({
@@ -807,7 +807,7 @@ const result = await processor.process({
 
 ### 6.2 Processor 的角色
 
-> 源码位置：`packages/opencode/src/session/processor.ts`（`SessionProcessor` 类）
+> 源码位置：[`/opencode/packages/opencode/src/session/processor.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/processor.ts)（`SessionProcessor` 类）
 
 **SessionProcessor**：处理与模型实际交互的核心组件
 
@@ -816,7 +816,7 @@ const result = await processor.process({
 - 接收所有必要的信息（用户消息、系统提示、工具定义、模型配置等）
 - 构造和发送请求到模型提供商
 
-**Processor 创建** (`packages/opencode/src/session/prompt.ts:571-599`)：
+**Processor 创建** ([`/opencode/packages/opencode/src/session/prompt.ts:571-599`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/prompt.ts#L571-L599))：
 
 ```typescript
 const processor = SessionProcessor.create({
@@ -859,7 +859,7 @@ const processor = SessionProcessor.create({
 
 ### 6.3 消息转换：内部消息格式 → LLM API 格式
 
-> 源码位置：`packages/opencode/src/session/message-v2.ts`（`MessageV2.toModelMessage()` 函数）
+> 源码位置：[`/opencode/packages/opencode/src/session/message-v2.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/message-v2.ts)（`MessageV2.toModelMessage()` 函数）
 
 **核心问题**：OpenCode 内部使用 `MessageV2` 格式存储消息（包含多种 part 类型），但 LLM API 只认识标准的 `user/assistant` 消息格式。
 
@@ -927,7 +927,7 @@ const messages = [
 
 ### 6.4 工具解析：告诉模型"能做什么"
 
-> 源码位置：`packages/opencode/src/session/prompt.ts`（`resolveTools()` 函数）
+> 源码位置：[`/opencode/packages/opencode/src/session/prompt.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/prompt.ts)（`resolveTools()` 函数）
 
 #### System Prompt 与工具定义的关系
 
@@ -1012,7 +1012,7 @@ const tools = await resolveTools({
 
 ## 七、Agent 特定 Prompt
 
-> 源码位置：`packages/opencode/src/agent/agent.ts`
+> 源码位置：[`/opencode/packages/opencode/src/agent/agent.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/agent/agent.ts)
 
 在 OpenCode 中，Agent 是实际执行任务的主体。每个 Agent 都可以有自己的特定提示词（Prompt），这些提示词会在 System Prompt 之后追加注入。本节将深入解析 Agent 的定义机制、内置 Agent 的设计思路，以及如何自定义 Agent 配置。
 
@@ -1036,7 +1036,7 @@ const tools = await resolveTools({
 
 ### 7.2 Agent 定义结构
 
-**文件位置**：`packages/opencode/src/agent/agent.ts`
+**文件位置**：[`/opencode/packages/opencode/src/agent/agent.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/agent/agent.ts)
 
 每个 Agent 的核心配置包含以下几个关键维度：
 
@@ -1053,7 +1053,7 @@ const tools = await resolveTools({
 
 ### 7.3 内置 Agent 分析
 
-OpenCode 内置了 7 个 Agent，分布在 `packages/opencode/src/agent/agent.ts` 中定义。通过分析它们的配置可以深入理解设计决策。
+OpenCode 内置了 7 个 Agent，分布在 [`/opencode/packages/opencode/src/agent/agent.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/agent/agent.ts) 中定义。通过分析它们的配置可以深入理解设计决策。
 
 | Agent | 模式 | 用途 | 可见性 |
 |-------|------|------|--------|
@@ -1079,7 +1079,7 @@ OpenCode 内置了 7 个 Agent，分布在 `packages/opencode/src/agent/agent.ts
 
 > **说明**：权限系统是独立主题，详细机制请参考权限管理部分。本节仅说明权限与 System Prompt 的集成点。
 
-**Agent 权限配置的位置**：`packages/opencode/src/agent/agent.ts`
+**Agent 权限配置的位置**：[`/opencode/packages/opencode/src/agent/agent.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/agent/agent.ts)
 
 **System Prompt 与权限的关系**：
 
@@ -1110,7 +1110,7 @@ OpenCode 内置了 7 个 Agent，分布在 `packages/opencode/src/agent/agent.ts
 
 ### 7.5 Agent Prompt 的注入机制
 
-**文件位置**：`packages/opencode/src/session/prompt.ts`
+**文件位置**：[`/opencode/packages/opencode/src/session/prompt.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/prompt.ts)
 
 OpenCode 提供了两种方式来为 Agent 注入特定提示词。
 
@@ -1121,7 +1121,7 @@ OpenCode 提供了两种方式来为 Agent 注入特定提示词。
 | Agent 定义 | System Prompt 之后 | 配置简单、清晰 | 无法参与上下文压缩 |
 | insertReminders | 用户消息末尾 | 可参与上下文压缩 | 逻辑更复杂 |
 
-**insertReminders 函数流程**（`packages/opencode/src/session/prompt.ts:1189-1325`）：
+**insertReminders 函数流程**（[`/opencode/packages/opencode/src/session/prompt.ts:1189-1325`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/prompt.ts#L1189-L1325)）：
 
 ```
 ┌────────────────────────────────────────────────────────────┐
@@ -1169,7 +1169,7 @@ if (input.agent.name === "plan") {
 
 用户可以通过配置文件自定义 Agent 的行为。
 
-**配置加载流程**（`packages/opencode/src/agent/agent.ts`）：
+**配置加载流程**（[`/opencode/packages/opencode/src/agent/agent.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/agent/agent.ts)）：
 
 ```
 ┌────────────────────────────────────────────────────────────┐

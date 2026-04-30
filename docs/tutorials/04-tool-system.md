@@ -50,7 +50,7 @@
 | **Parameters**  | 参数模式（Zod Schema）      | `Tool.Info.init().parameters`  |
 | **Execute**     | 执行逻辑                    | `Tool.Info.init().execute`     |
 
-**完整 Tool 定义示例** (`packages/opencode/src/tool/read.ts:16-152`)：
+**完整 Tool 定义示例** ([`/opencode/packages/opencode/src/tool/read.ts:16-152`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/read.ts#L16-L152))：
 
 ```typescript
 export const ReadTool = Tool.define("read", {
@@ -98,11 +98,11 @@ OpenCode 提供了以下 **14 个核心工具**：
 
 | 文件                                          | 说明                              |
 | --------------------------------------------- | --------------------------------- |
-| `packages/opencode/src/tool/tool.ts`          | Tool 接口定义和 `define` 函数     |
-| `packages/opencode/src/tool/registry.ts`      | ToolRegistry 命名空间，工具注册表 |
-| `packages/opencode/src/tool/*.ts`             | 各工具实现（read、bash、edit 等） |
-| `packages/opencode/src/tool/truncation.ts`    | 输出截断处理逻辑                  |
-| `packages/opencode/src/provider/transform.ts` | Provider Schema 转换              |
+| [`/opencode/packages/opencode/src/tool/tool.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/tool.ts)          | Tool 接口定义和 `define` 函数     |
+| [`/opencode/packages/opencode/src/tool/registry.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/registry.ts)      | ToolRegistry 命名空间，工具注册表 |
+| [`/opencode/packages/opencode/src/tool/*.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/)             | 各工具实现（read、bash、edit 等） |
+| [`/opencode/packages/opencode/src/tool/truncation.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/truncation.ts)    | 输出截断处理逻辑                  |
+| [`/opencode/packages/opencode/src/provider/transform.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/provider/transform.ts) | Provider Schema 转换              |
 
 ---
 
@@ -110,7 +110,7 @@ OpenCode 提供了以下 **14 个核心工具**：
 
 ### 2.1 Tool 命名空间详解
 
-**Tool** 命名空间是整个 Tool 系统的核心，位于 `packages/opencode/src/tool/tool.ts`。
+**Tool** 命名空间是整个 Tool 系统的核心，位于 [`/opencode/packages/opencode/src/tool/tool.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/tool.ts)。
 
 **三个核心类型：**
 
@@ -140,7 +140,7 @@ export namespace Tool {
 
 **Context** 是工具执行时接收的上下文对象，提供了与系统交互的能力。
 
-**完整接口定义** (`packages/opencode/src/tool/tool.ts:16-25`)：
+**完整接口定义** ([`/opencode/packages/opencode/src/tool/tool.ts:16-25`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/tool.ts#L16-L25))：
 
 ```typescript
 export type Context<M extends Metadata = Metadata> = {
@@ -164,7 +164,7 @@ export type Context<M extends Metadata = Metadata> = {
 | **中止控制**   | `ctx.abort`      | 监听中止信号，支持用户取消操作                  |
 | **额外数据**   | `ctx.extra`      | 接收调用者传入的额外数据（如 `bypassCwdCheck`） |
 
-**元数据更新示例** (`packages/opencode/src/tool/edit.ts:124-130`)：
+**元数据更新示例** ([`/opencode/packages/opencode/src/tool/edit.ts:124-130`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/edit.ts#L124-L130))：
 
 ```typescript
 ctx.metadata({
@@ -176,7 +176,7 @@ ctx.metadata({
 })
 ```
 
-**权限请求示例** (`packages/opencode/src/tool/read.ts:32-48`)：
+**权限请求示例** ([`/opencode/packages/opencode/src/tool/read.ts:32-48`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/read.ts#L32-L48))：
 
 ```typescript
 // 请求外部目录访问权限
@@ -202,7 +202,7 @@ await ctx.ask({
 
 **Info** 是工具的静态定义接口，描述了工具的元数据和初始化逻辑。
 
-**完整接口定义** (`packages/opencode/src/tool/tool.ts:26-42`)：
+**完整接口定义** ([`/opencode/packages/opencode/src/tool/tool.ts:26-42`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/tool.ts#L26-L42))：
 
 ```typescript
 export interface Info<Parameters extends z.ZodType = z.ZodType, M extends Metadata = Metadata> {
@@ -244,7 +244,7 @@ export type InferMetadata<T extends Info> = M // 提取元数据类型
 
 **define** 是定义工具的核心函数，封装了参数验证和输出截断逻辑。
 
-**完整实现** (`packages/opencode/src/tool/tool.ts:47-87`)：
+**完整实现** ([`/opencode/packages/opencode/src/tool/tool.ts:47-87`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/tool.ts#L47-L87))：
 
 ```typescript
 export function define<Parameters extends z.ZodType, Result extends Metadata>(
@@ -309,7 +309,7 @@ export function define<Parameters extends z.ZodType, Result extends Metadata>(
 
 **InitContext** 是工具初始化时接收的上下文，用于获取 Agent 信息。
 
-**完整接口定义** (`packages/opencode/src/tool/tool.ts:12-14`)：
+**完整接口定义** ([`/opencode/packages/opencode/src/tool/tool.ts:12-14`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/tool.ts#L12-L14))：
 
 ```typescript
 export interface InitContext {
@@ -319,7 +319,7 @@ export interface InitContext {
 
 **使用场景：** 工具可以根据当前 Agent 调整行为，如 TaskTool 根据调用者权限过滤可用的子 Agent。
 
-**使用示例** (`packages/opencode/src/tool/task.ts:27-30`)：
+**使用示例** ([`/opencode/packages/opencode/src/tool/task.ts:27-30`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/task.ts#L27-L30))：
 
 ```typescript
 const caller = ctx?.agent
@@ -349,7 +349,7 @@ const accessibleAgents = caller
 
 ### 3.2 工具注册流程
 
-**工具列表来源** (`packages/opencode/src/tool/registry.ts:89-112`)：
+**工具列表来源** ([`/opencode/packages/opencode/src/tool/registry.ts:89-112`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/registry.ts#L89-L112))：
 
 ```typescript
 async function all(): Promise<Tool.Info[]> {
@@ -391,7 +391,7 @@ async function all(): Promise<Tool.Info[]> {
 
 ### 3.3 自定义工具加载
 
-**自定义工具目录扫描** (`packages/opencode/src/tool/registry.ts:31-48`)：
+**自定义工具目录扫描** ([`/opencode/packages/opencode/src/tool/registry.ts:31-48`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/registry.ts#L31-L48))：
 
 ```typescript
 export const state = Instance.state(async () => {
@@ -437,7 +437,7 @@ export const state = Instance.state(async () => {
 
 ### 3.4 工具查询接口
 
-**获取所有工具 ID** (`packages/opencode/src/tool/registry.ts:114-116`)：
+**获取所有工具 ID** ([`/opencode/packages/opencode/src/tool/registry.ts:114-116`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/registry.ts#L114-L116))：
 
 ```typescript
 export async function ids() {
@@ -445,7 +445,7 @@ export async function ids() {
 }
 ```
 
-**获取可用工具** (`packages/opencode/src/tool/registry.ts:118-138`)：
+**获取可用工具** ([`/opencode/packages/opencode/src/tool/registry.ts:118-138`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/registry.ts#L118-L138))：
 
 ```typescript
 export async function tools(providerID: string, agent?: Agent.Info) {
@@ -485,7 +485,7 @@ export async function tools(providerID: string, agent?: Agent.Info) {
 
 **功能**：安全读取文件内容，支持大文件截断和二进制文件检测。
 
-**定义位置**：`packages/opencode/src/tool/read.ts`
+**定义位置**：[`/opencode/packages/opencode/src/tool/read.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/read.ts)
 
 **参数模式**：
 
@@ -535,7 +535,7 @@ parameters: z.object({
 
 **功能**：使用 diff 语义安全编辑文件，支持多种匹配策略。
 
-**定义位置**：`packages/opencode/src/tool/edit.ts`
+**定义位置**：[`/opencode/packages/opencode/src/tool/edit.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/edit.ts)
 
 **参数模式**：
 
@@ -548,7 +548,7 @@ parameters: z.object({
 })
 ```
 
-**匹配策略优先级** (`packages/opencode/src/tool/edit.ts:618-655`)：
+**匹配策略优先级** ([`/opencode/packages/opencode/src/tool/edit.ts:618-655`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/edit.ts#L618-L655))：
 
 | 策略                           | 说明                | 阈值      |
 | ------------------------------ | ------------------- | --------- |
@@ -582,7 +582,7 @@ parameters: z.object({
 
 **功能**：完整覆盖写入文件，保留文件历史差异。
 
-**定义位置**：`packages/opencode/src/tool/write.ts`
+**定义位置**：[`/opencode/packages/opencode/src/tool/write.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/write.ts)
 
 **参数模式**：
 
@@ -611,7 +611,7 @@ parameters: z.object({
 
 **功能**：安全执行 Shell 命令，支持命令解析和权限控制。
 
-**定义位置**：`packages/opencode/src/tool/bash.ts`
+**定义位置**：[`/opencode/packages/opencode/src/tool/bash.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/bash.ts)
 
 **参数模式**：
 
@@ -624,7 +624,7 @@ parameters: z.object({
 })
 ```
 
-**命令解析** (`packages/opencode/src/tool/bash.ts:92-137`)：
+**命令解析** ([`/opencode/packages/opencode/src/tool/bash.ts:92-137`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/bash.ts#L92-L137))：
 
 ```typescript
 // 使用 tree-sitter 解析 bash 命令
@@ -652,7 +652,7 @@ for (const node of tree.rootNode.descendantsOfType("command")) {
 }
 ```
 
-**权限请求** (`packages/opencode/src/tool/bash.ts:139-155`)：
+**权限请求** ([`/opencode/packages/opencode/src/tool/bash.ts:139-155`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/bash.ts#L139-L155))：
 
 ```typescript
 if (directories.size > 0) {
@@ -690,7 +690,7 @@ const timeoutTimer = setTimeout(() => {
 
 **功能**：调用其他 Agent 执行任务，实现 Agent 组合。
 
-**定义位置**：`packages/opencode/src/tool/task.ts`
+**定义位置**：[`/opencode/packages/opencode/src/tool/task.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/task.ts)
 
 **参数模式**：
 
@@ -704,7 +704,7 @@ parameters: z.object({
 })
 ```
 
-**Agent 权限过滤** (`packages/opencode/src/tool/task.ts:27-30`)：
+**Agent 权限过滤** ([`/opencode/packages/opencode/src/tool/task.ts:27-30`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/task.ts#L27-L30))：
 
 ```typescript
 const caller = ctx?.agent
@@ -713,7 +713,7 @@ const accessibleAgents = caller
   : agents
 ```
 
-**子会话创建** (`packages/opencode/src/tool/task.ts:59-91`)：
+**子会话创建** ([`/opencode/packages/opencode/src/tool/task.ts:59-91`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/task.ts#L59-L91))：
 
 ```typescript
 return await Session.create({
@@ -738,7 +738,7 @@ return await Session.create({
 
 **功能**：加载和执行 Skill，提供专业领域的指导。
 
-**定义位置**：`packages/opencode/src/tool/skill.ts`
+**定义位置**：[`/opencode/packages/opencode/src/tool/skill.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/skill.ts)
 
 **参数模式**：
 
@@ -748,7 +748,7 @@ parameters: z.object({
 })
 ```
 
-**Skill 权限过滤** (`packages/opencode/src/tool/skill.ts:16-22`)：
+**Skill 权限过滤** ([`/opencode/packages/opencode/src/tool/skill.ts:16-22`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/skill.ts#L16-L22))：
 
 ```typescript
 const agent = ctx?.agent
@@ -766,7 +766,7 @@ const accessibleSkills = agent
 
 **功能**：使用 ripgrep 进行代码内容搜索。
 
-**定义位置**：`packages/opencode/src/tool/grep.ts`
+**定义位置**：[`/opencode/packages/opencode/src/tool/grep.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/grep.ts)
 
 **参数模式**：
 
@@ -795,7 +795,7 @@ parameters: z.object({
 
 **功能**：使用 glob 模式匹配文件。
 
-**定义位置**：`packages/opencode/src/tool/glob.ts`
+**定义位置**：[`/opencode/packages/opencode/src/tool/glob.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/glob.ts)
 
 **参数模式**：
 
@@ -855,7 +855,7 @@ await ctx.ask({
 - 用于设置自动批准的规则
 - 匹配该模式的后续操作无需确认
 
-**示例** (`packages/opencode/src/tool/read.ts:32-48`)：
+**示例** ([`/opencode/packages/opencode/src/tool/read.ts:32-48`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/read.ts#L32-L48))：
 
 ```typescript
 // 读取项目内文件
@@ -920,7 +920,7 @@ OpenCode 采用权限请求与执行分离的架构：
 
 ### 5.4 外部目录权限请求
 
-**外部目录判断** (`packages/opencode/src/tool/read.ts:30-41`)：
+**外部目录判断** ([`/opencode/packages/opencode/src/tool/read.ts:30-41`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/read.ts#L30-L41))：
 
 ```typescript
 if (!ctx.extra?.["bypassCwdCheck"] && !Filesystem.contains(Instance.directory, filepath)) {
@@ -944,7 +944,7 @@ if (!ctx.extra?.["bypassCwdCheck"] && !Filesystem.contains(Instance.directory, f
 
 **Truncate** 负责处理工具输出的大文件截断，避免超出上下文限制。
 
-**核心常量** (`packages/opencode/src/tool/truncation.ts:9-13`)：
+**核心常量** ([`/opencode/packages/opencode/src/tool/truncation.ts:9-13`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/truncation.ts#L9-L13))：
 
 ```typescript
 export const MAX_LINES = 2000
@@ -957,7 +957,7 @@ const RETENTION_MS = 7 * 24 * 60 * 60 * 1000 // 7 天
 
 ### 6.2 输出截断逻辑
 
-**完整实现** (`packages/opencode/src/tool/truncation.ts:41-97`)：
+**完整实现** ([`/opencode/packages/opencode/src/tool/truncation.ts:41-97`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/truncation.ts#L41-L97))：
 
 ```typescript
 export async function output(text: string, options: Options = {}, agent?: Agent.Info): Promise<Result> {
@@ -1030,7 +1030,7 @@ export async function output(text: string, options: Options = {}, agent?: Agent.
 
 **临时文件目录**：`~/Library/Application Support/opencode/tool-output/`
 
-**清理机制** (`packages/opencode/src/tool/truncation.ts:23-31`)：
+**清理机制** ([`/opencode/packages/opencode/src/tool/truncation.ts:23-31`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/truncation.ts#L23-L31))：
 
 ```typescript
 export async function cleanup() {
@@ -1050,7 +1050,7 @@ export async function cleanup() {
 
 ### 6.4 TaskTool 特殊处理
 
-**Agent 权限感知** (`packages/opencode/src/tool/truncation.ts:35-39`)：
+**Agent 权限感知** ([`/opencode/packages/opencode/src/tool/truncation.ts:35-39`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/truncation.ts#L35-L39))：
 
 ```typescript
 function hasTaskTool(agent?: Agent.Info): boolean {
@@ -1075,13 +1075,13 @@ function hasTaskTool(agent?: Agent.Info): boolean {
 
 OpenCode 使用统一的工具定义格式，需要转换为各 Provider 兼容的 Schema 格式。
 
-**转换入口**：`packages/opencode/src/provider/transform.ts`
+**转换入口**：[`/opencode/packages/opencode/src/provider/transform.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/provider/transform.ts)
 
 ---
 
 ### 7.2 Schema 转换函数
 
-**主转换函数** (`packages/opencode/src/provider/transform.ts:576-638`)：
+**主转换函数** ([`/opencode/packages/opencode/src/provider/transform.ts:576-638`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/provider/transform.ts#L576-L638))：
 
 ```typescript
 export function schema(model: Provider.Model, schema: JSONSchema.BaseSchema) {
@@ -1169,7 +1169,7 @@ z.object({
 
 ### 7.4 消息格式标准化
 
-**消息标准化** (`packages/opencode/src/provider/transform.ts:19-139`)：
+**消息标准化** ([`/opencode/packages/opencode/src/provider/transform.ts:19-139`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/provider/transform.ts#L19-L139))：
 
 ```typescript
 function normalizeMessages(msgs: ModelMessage[], model: Provider.Model): ModelMessage[] {
@@ -1384,7 +1384,7 @@ bash -c "for i in \$(seq 1 10000); do echo \$i; done"
 
 ### 9.1 自定义工具加载器
 
-**从插件加载工具** (`packages/opencode/src/tool/registry.ts:50-56`)：
+**从插件加载工具** ([`/opencode/packages/opencode/src/tool/registry.ts:50-56`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/registry.ts#L50-L56))：
 
 ```typescript
 const plugins = await Plugin.list()
@@ -1437,7 +1437,7 @@ const bypassCwdCheck = ctx.extra?.["bypassCwdCheck"]
 
 ### 9.3 工具输出附件
 
-**支持附件类型** (`packages/opencode/src/tool/read.ts:83-93`)：
+**支持附件类型** ([`/opencode/packages/opencode/src/tool/read.ts:83-93`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/read.ts#L83-L93))：
 
 ```typescript
 return {
@@ -1471,13 +1471,13 @@ return {
 
 ### 9.4 实验性工具启用
 
-**通过 Flag 启用** (`packages/opencode/src/tool/registry.ts:108`)：
+**通过 Flag 启用** ([`/opencode/packages/opencode/src/tool/registry.ts:108`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/registry.ts#L108))：
 
 ```typescript
 ...(Flag.OPENCODE_EXPERIMENTAL_LSP_TOOL ? [LspTool] : []),
 ```
 
-**通过配置启用** (`packages/opencode/src/tool/registry.ts:109`)：
+**通过配置启用** ([`/opencode/packages/opencode/src/tool/registry.ts:109`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/registry.ts#L109))：
 
 ```typescript
 ...(config.experimental?.batch_tool === true ? [BatchTool] : []),
@@ -1487,14 +1487,14 @@ return {
 
 ### 9.5 工具与 LSP 集成
 
-**LSP 预热** (`packages/opencode/src/tool/read.ts:140`)：
+**LSP 预热** ([`/opencode/packages/opencode/src/tool/read.ts:140`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/read.ts#L140))：
 
 ```typescript
 // 预热 LSP
 LSP.touchFile(filepath, false)
 ```
 
-**诊断获取** (`packages/opencode/src/tool/edit.ts:133-143`)：
+**诊断获取** ([`/opencode/packages/opencode/src/tool/edit.ts:133-143`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/edit.ts#L133-L143))：
 
 ```typescript
 const diagnostics = await LSP.diagnostics()
@@ -1641,13 +1641,13 @@ const data = ctx.extra?.["intermediateResult"]
 
 | 文件                                          | 说明          |
 | --------------------------------------------- | ------------- |
-| `packages/opencode/src/tool/tool.ts`          | Tool 接口定义 |
-| `packages/opencode/src/tool/registry.ts`      | 工具注册表    |
-| `packages/opencode/src/tool/read.ts`          | ReadTool 实现 |
-| `packages/opencode/src/tool/bash.ts`          | BashTool 实现 |
-| `packages/opencode/src/tool/edit.ts`          | EditTool 实现 |
-| `packages/opencode/src/tool/truncation.ts`    | 输出截断处理  |
-| `packages/opencode/src/provider/transform.ts` | Schema 转换   |
+| [`/opencode/packages/opencode/src/tool/tool.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/tool.ts)          | Tool 接口定义 |
+| [`/opencode/packages/opencode/src/tool/registry.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/registry.ts)      | 工具注册表    |
+| [`/opencode/packages/opencode/src/tool/read.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/read.ts)          | ReadTool 实现 |
+| [`/opencode/packages/opencode/src/tool/bash.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/bash.ts)          | BashTool 实现 |
+| [`/opencode/packages/opencode/src/tool/edit.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/edit.ts)          | EditTool 实现 |
+| [`/opencode/packages/opencode/src/tool/truncation.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/truncation.ts)    | 输出截断处理  |
+| [`/opencode/packages/opencode/src/provider/transform.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/provider/transform.ts) | Schema 转换   |
 
 ### 相关文档
 

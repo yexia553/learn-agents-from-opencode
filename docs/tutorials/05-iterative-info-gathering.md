@@ -113,7 +113,7 @@ OpenCode:  输入 → 分析 → 探索? → 收集 → 分析 → 探索? → .
 
 ### 2.1 循环结构解析
 
-**位置：** `packages/opencode/src/session/processor.ts:44-397`
+**位置：** [`/opencode/packages/opencode/src/session/processor.ts:44-397`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/processor.ts#L44-L397)
 
 处理器是整个迭代模式的核心，包含双层循环结构：
 
@@ -542,7 +542,7 @@ permission: PermissionNext.merge(
 
 ### 5.3 System Prompt
 
-**位置：** `packages/opencode/src/agent/prompt/explore.txt`
+**位置：** [`/opencode/packages/opencode/src/agent/prompt/explore.txt`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/agent/prompt/explore.txt)
 
 ```text
 You are a file search specialist. You excel at thoroughly navigating and exploring codebases.
@@ -598,7 +598,7 @@ build Agent 决策:
 
 **Task Tool** 是调用 subagent 的核心工具：
 
-**位置：** `packages/opencode/src/tool/task.ts`
+**位置：** [`/opencode/packages/opencode/src/tool/task.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/tool/task.ts)
 
 ```typescript
 // task.ts:15-21

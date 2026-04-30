@@ -76,10 +76,10 @@
 
 | 文件 | 路径 | 说明 |
 |------|------|------|
-| **Provider 核心** | `packages/opencode/src/provider/provider.ts` | 核心实现 (1135行) |
-| **模型数据** | `packages/opencode/src/provider/models.ts` | 模型定义和加载 |
-| **模型宏** | `packages/opencode/src/provider/models-macro.ts` | 内置模型数据 |
-| **转换逻辑** | `packages/opencode/src/provider/transform.ts` | 工具 schema 转换 |
+| **Provider 核心** | [`/opencode/packages/opencode/src/provider/provider.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/provider/provider.ts) | 核心实现 (1135行) |
+| **模型数据** | [`/opencode/packages/opencode/src/provider/models.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/provider/models.ts) | 模型定义和加载 |
+| **模型宏** | [`/opencode/packages/opencode/src/provider/models-macro.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/provider/models-macro.ts) | 内置模型数据 |
+| **转换逻辑** | [`/opencode/packages/opencode/src/provider/transform.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/provider/transform.ts) | 工具 schema 转换 |
 
 ---
 

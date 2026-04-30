@@ -74,12 +74,12 @@
 
 | 文件 | 路径 | 说明 |
 |------|------|------|
-| **Session 核心** | `packages/opencode/src/session/index.ts` | Session 管理 (470行) |
-| **消息定义** | `packages/opencode/src/session/message-v2.ts` | MessageV2 类型 |
-| **消息处理** | `packages/opencode/src/session/processor.ts` | 消息处理器 |
-| **上下文压缩** | `packages/opencode/src/session/compaction.ts` | 压缩机制 |
-| **消息流转换** | `packages/opencode/src/session/llm.ts` | LLM 流处理 |
-| **摘要生成** | `packages/opencode/src/session/summary.ts` | 摘要生成 |
+| **Session 核心** | [`/opencode/packages/opencode/src/session/index.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/index.ts) | Session 管理 (470行) |
+| **消息定义** | [`/opencode/packages/opencode/src/session/message-v2.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/message-v2.ts) | MessageV2 类型 |
+| **消息处理** | [`/opencode/packages/opencode/src/session/processor.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/processor.ts) | 消息处理器 |
+| **上下文压缩** | [`/opencode/packages/opencode/src/session/compaction.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/compaction.ts) | 压缩机制 |
+| **消息流转换** | [`/opencode/packages/opencode/src/session/llm.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/llm.ts) | LLM 流处理 |
+| **摘要生成** | [`/opencode/packages/opencode/src/session/summary.ts`](https://github.com/anomalyco/opencode/blob/v1.14.30/packages/opencode/src/session/summary.ts) | 摘要生成 |
 
 ---
 
