@@ -1,34 +1,55 @@
 # Learn Agents from OpenCode
 
-> 基于 OpenCode 源码学习 Coding Agent 工程架构的中文教程。
+> [中文](README.zh.md) | English
 
-OpenCode 是一个优秀的开源 Coding Agent 项目，Agent、Tool、Permission、Skill、Session、Provider 等核心概念在其中都有完整实现。本仓库记录了我学习 OpenCode 源码过程中整理的教程，目标是帮助读者理解一个真实 Agent 项目的工程设计，而不是从零复刻一个玩具示例。
+> A Chinese tutorial series on learning Coding Agent engineering architecture from the OpenCode source code.
 
-本教程主要使用 OpenCode、Claude Code、Codex 等工具辅助生成，并经过人工 review。阅读时建议搭配 [OpenCode 源码](https://github.com/anomalyco/opencode) 一起使用。
+OpenCode is an excellent open-source Coding Agent project with complete implementations of core concepts such as Agent, Tool, Permission, Skill, Session, and Provider. This repository documents the tutorials I compiled while studying the OpenCode source code, aiming to help readers understand the engineering design of a real-world Agent project rather than building a toy example from scratch.
 
-## 适合读者
+These tutorials were primarily generated with assistance from OpenCode, Claude Code, and Codex, and have been manually reviewed. It is recommended to read them alongside the [OpenCode source code](https://github.com/anomalyco/opencode).
 
-- 已经使用过 Claude Code、Codex、OpenCode 等 coding agent，想理解其内部工作方式
-- 想自己实现一个可控的 Coding Agent 或其他类型的 Agent
-- 对 Agent 的权限、工具调用、会话管理、Prompt 组装等模块有工程需求
+## Target Audience
 
-## 教程目录
+- Users who have already used coding agents like Claude Code, Codex, or OpenCode and want to understand their internal workings
+- Developers looking to implement their own controllable Coding Agent or other types of Agents
+- Engineers with requirements for Agent permissions, tool calling, session management, prompt assembly, and other modules
 
-完整课程导航见 [docs/README.md](docs/README.md)。
+## Quick Start
 
-| 序号 | 教程 | 说明 |
+This repo includes the OpenCode source code as a Git submodule so you can follow the tutorials while reading the actual implementation.
+
+```bash
+# Clone with submodule (recommended)
+git clone --recursive https://github.com/yexia553/learn-agents-from-opencode.git
+
+# Or if already cloned, initialize the submodule
+git submodule update --init --recursive
+
+# The OpenCode source will be available at ./opencode/
+cd opencode && bun install
+```
+
+> **Note:** Tutorials reference source files under `opencode/packages/opencode/src/...`.
+
+## Tutorial Index
+
+For full navigation, see [docs/README.md](docs/README.md).
+
+| No. | Tutorial | Description |
 | --- | --- | --- |
-| 00 | [学习规划](docs/00-learning-plan.md) | 完整的架构学习路线图 |
-| 01 | [System Prompt 系统](docs/tutorials/01-system-prompt.md) | Prompt 构建、Provider 适配、环境注入 |
-| 02 | [权限审核系统](docs/tutorials/02-permission-system.md) | 权限规则、请求流程、BashArity |
-| 03 | [Agent 系统](docs/tutorials/03-agent-system.md) | 内置 Agent、配置系统、权限集成 |
-| 04 | [Tool 系统](docs/tutorials/04-tool-system.md) | 工具定义、注册、执行流程 |
-| 05 | [迭代信息收集模式](docs/tutorials/05-iterative-info-gathering.md) | Tool Chaining、Explore Agent、SubAgent |
-| 06 | [Skill 系统](docs/tutorials/06-skill-system.md) | Skill 定义、发现机制、工具集成 |
-| 07 | [Session 系统](docs/tutorials/07-session-system.md) | 会话管理、消息流转、上下文压缩 |
-| 08 | [Provider 系统](docs/tutorials/08-provider-system.md) | 多模型适配、SDK 初始化、成本计算 |
+| 00 | [Learning Plan](docs/00-learning-plan.md) | Complete architecture learning roadmap |
+| 01 | [System Prompt](docs/tutorials/01-system-prompt.md) | Prompt construction, Provider adaptation, environment injection |
+| 02 | [Permission System](docs/tutorials/02-permission-system.md) | Permission rules, request flow, BashArity |
+| 03 | [Agent System](docs/tutorials/03-agent-system.md) | Built-in Agents, configuration system, permission integration |
+| 04 | [Tool System](docs/tutorials/04-tool-system.md) | Tool definition, registration, execution flow |
+| 05 | [Iterative Info Gathering](docs/tutorials/05-iterative-info-gathering.md) | Tool Chaining, Explore Agent, SubAgent |
+| 06 | [Skill System](docs/tutorials/06-skill-system.md) | Skill definition, discovery mechanism, tool integration |
+| 07 | [Session System](docs/tutorials/07-session-system.md) | Session management, message flow, context compression |
+| 08 | [Provider System](docs/tutorials/08-provider-system.md) | Multi-model adaptation, SDK initialization, cost calculation |
 
-## 仓库结构
+> **Note:** The tutorial documents below are currently available in Chinese only. English translations will be added progressively.
+
+## Repository Structure
 
 ```text
 .
@@ -44,6 +65,10 @@ OpenCode 是一个优秀的开源 Coding Agent 项目，Agent、Tool、Permissio
 │       ├── 06-skill-system.md
 │       ├── 07-session-system.md
 │       └── 08-provider-system.md
+├── opencode/                  # OpenCode source code (submodule)
+│   └── packages/
+│       └── opencode/
+│           └── src/
 ├── .github/
 │   ├── ISSUE_TEMPLATE/
 │   ├── workflows/
@@ -53,18 +78,23 @@ OpenCode 是一个优秀的开源 Coding Agent 项目，Agent、Tool、Permissio
 ├── SECURITY.md
 ├── CHANGELOG.md
 ├── LICENSE
-└── README.md
+├── README.md
+└── README.zh.md
 ```
 
-## 贡献
+## Contributing
 
-欢迎通过 issue 或 pull request 改进教程内容。开始前请先阅读 [CONTRIBUTING.md](CONTRIBUTING.md)。
+Contributions via issues or pull requests are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) first.
 
-## 许可证
+## License
 
-本项目使用 [MIT License](LICENSE)。
+This project is licensed under the [MIT License](LICENSE).
 
-## 相关资源
+## Related Resources
 
-- [OpenCode 官方网站](https://opencode.ai)
+- [OpenCode Official Website](https://opencode.ai)
 - [OpenCode GitHub](https://github.com/anomalyco/opencode)
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=yexia553/learn-agents-from-opencode&type=Date)](https://star-history.com/#yexia553/learn-agents-from-opencode&Date)

@@ -2,6 +2,25 @@
 
 > 基于代码库探索的完整学习路线图
 
+## 环境准备
+
+本仓库已将 OpenCode 源码以 Git submodule 引入，教程中的源码路径均基于 `./opencode/` 目录。
+
+```bash
+# 克隆本仓库及 submodule
+git clone --recursive https://github.com/yexia553/learn-agents-from-opencode.git
+
+# 或已克隆后初始化
+git submodule update --init --recursive
+
+# 安装依赖
+cd opencode && bun install
+```
+
+OpenCode 源码锁定在 `v1.14.30` 版本，教程中的文件路径对应为 `opencode/packages/opencode/src/...`。
+
+---
+
 ## 核心架构模块
 
 ### 1. System Prompt 系统 (重点学习)
@@ -518,7 +537,8 @@ description: use this when asked to test skill
 ## 运行命令速查
 
 ```bash
-# 启动开发环境
+# 启动开发环境（在 opencode/ 目录下）
+cd opencode
 bun install
 bun dev
 
